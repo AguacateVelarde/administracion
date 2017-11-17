@@ -1,0 +1,40 @@
+<div class="logo">
+      <div class="logo-icon">
+        <img src="assets/img/logo.png">
+      </div>
+    </div> 
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="" class="table table-bordered table-hover">
+          <caption class="text-center">Tabla de administración para el menú interactivo: </caption>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Imagen</th>
+              <th>Precio</th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of dataProductos | async" style="" >
+
+              <tr *ngFor="let item_ of item.Pedido " [class.CcolorBlue]="item.completo" [class.CcolorRed]="!item.completo">
+                <td>{{ item_.nombre }}</td>
+                <td>{{ item_.img  }}.png</td>
+                <td>{{ item_.precio  | currency:'USD':true:'2.2-2' }} </td>
+
+              </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" >Total de ganancia: </td>
+              <td colspan="1"> {{ costo }}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

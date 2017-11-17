@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>carrito</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let item of getMenu()">
+      <h1>Producto: {{ item.nombre }}</h1>
+    </ion-item>
+  </ion-list>
+<button ion-button full (click)="pedir()"> ¡ Pedir ! </button>
+</ion-content>

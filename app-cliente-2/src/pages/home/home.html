@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button  (click)="getCarrito()" id="notification-button" ion-button clear>
+        <ion-icon id="cartN" name="cart">
+          <ion-badge id="notifications-badge" color="danger">{{ getCont( ) }}</ion-badge>
+        </ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="home">
+
+<ion-list>
+  <ion-item  *ngFor="let item of dataProductos | async" (click)="add( item.nombre, item.precio, item.img )" >
+      <ion-avatar text-start class="avatar">
+        <img src="assets/img/{{ item.img }}.png" >
+      </ion-avatar>
+        {{ item.nombre }}
+    <div class="item-note" item-right>
+   <p item-end>{{ item.precio | currency:'USD':true:'2.2-2' }}</p>
+    </div>
+  </ion-item >
+
+
+</ion-list>
+<button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+
+</ion-content>

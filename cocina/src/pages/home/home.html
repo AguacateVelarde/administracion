@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Pedidos</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="home">
+
+<ion-list *ngFor="let item of dataProductos | async" [hidden]="item.completo">
+  <ion-item *ngFor="let item_ of item.Pedido"   >
+      <ion-avatar text-start class="avatar">
+        <img src="assets/img/{{ item_.img }}.png">
+      </ion-avatar>
+
+    <div class="item-note" item-right>
+   <p item-end>{{ item_.nombre}}</p>
+    </div>
+
+  </ion-item >
+<button ion-button (click)="Disable( item.id )"> ¡Pedido Completo! </button>
+
+</ion-list>
+<button ion-button color="danger" (click)="logout()">Cerrar sesión</button>
+
+</ion-content>
